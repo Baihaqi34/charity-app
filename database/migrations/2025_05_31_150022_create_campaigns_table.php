@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('id_kategori')->constrained('kategori')->onDelete('cascade');
             $table->string('judul');
             $table->text('deskripsi')->nullable();
-            $table->int('nominal_target');
-            $table->int('nominal_terkumpul')->default(0);
+            $table->integer('nominal_target');
+            $table->integer('nominal_terkumpul')->default(0);
             $table->date('deadline')->nullable();
             $table->timestamps();
         });
