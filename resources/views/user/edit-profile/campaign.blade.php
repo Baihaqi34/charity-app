@@ -1,6 +1,9 @@
 <div class="flex justify-between items-center mb-6">
     <h2 class="text-2xl font-bold text-black">Campaign Saya</h2>
-    <button class="text-primary font-medium">Lihat Profil</button>
+    <a href="{{url('/create-campaign')}}"
+        class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primaryDark transition duration-300">
+        Buat Campaign
+    </a>
 </div>
 
 

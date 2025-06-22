@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CampaignController;
 use App\Models\Kategori;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\Password;
@@ -8,9 +7,11 @@ use App\Livewire\Settings\Appearance;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProfileController;
 
 // Route::get('/', function () {
 //     return view('home');`
@@ -18,6 +19,9 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/p', function () {
     return view('user.campaign.tambah-campaign');
+})->name('s');
+Route::get('/donation', function () {
+    return view('user.donation.index');
 })->name('s');
 Route::get('/w', function () {
     return view('welcome');
@@ -63,6 +67,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('create-campaign', [CampaignController::class, 'create']);
     Route::post('/create-campaign', [CampaignController::class, 'store']);
+
+
+    Route::post('/donate', [DonationController::class, 'donate'])->name('donation.store');
 });
 
 require __DIR__ . '/auth.php';
